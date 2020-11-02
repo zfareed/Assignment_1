@@ -92,7 +92,7 @@
                     tools:ignore="VectorDrawableCompat" />
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
@@ -145,7 +145,7 @@
                     android:src="@drawable/pressure_vector" />
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
@@ -198,7 +198,7 @@
                     />
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
@@ -249,7 +249,7 @@
                     />
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
@@ -289,7 +289,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -310,7 +310,7 @@
                     />
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
@@ -361,7 +361,7 @@
                     />
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
@@ -413,7 +413,7 @@
                     />
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
@@ -464,7 +464,7 @@
                     />
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="70dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="6dp"
                     android:layout_marginRight="6dp"
