@@ -28,5 +28,7 @@ public class MainActivity extends AppCompatActivity {
         MyWeatherAdapter weatherAdapter = new MyWeatherAdapter(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(weatherAdapter);
+
+
     }
 }

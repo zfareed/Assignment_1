@@ -1,6 +1,7 @@
 package com.example.assignment_1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyViewHolder> {
+public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyViewHolder> implements View.OnClickListener{
 
     Context context;
     public MyWeatherAdapter(Context context) {
         this.context = context;
+
+
     }
 
     @NonNull
@@ -36,11 +39,19 @@ public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyVi
         holder.minTemp.setText("35");
         holder.maxTemp.setText("45");
 
+        holder.itemView.setOnClickListener(this);
+
     }
 
     @Override
     public int getItemCount() {
         return 7;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(context,WeatherActivity.class);
+        context.startActivity(intent);
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -54,6 +65,11 @@ public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyVi
             description = itemView.findViewById(R.id.desView);
             minTemp = itemView.findViewById(R.id.minVew);
             maxTemp = itemView.findViewById(R.id.maxView);
+
+
+
+
+
         }
     }
 }
