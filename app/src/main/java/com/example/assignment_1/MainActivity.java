@@ -7,12 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+    ArrayList<String> dayNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Days();
 
 
 
@@ -25,10 +29,21 @@ public class MainActivity extends AppCompatActivity {
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        MyWeatherAdapter weatherAdapter = new MyWeatherAdapter(this);
+        MyWeatherAdapter weatherAdapter = new MyWeatherAdapter(this, dayNames);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(weatherAdapter);
 
 
+    }
+
+    public  void Days(){
+            dayNames = new ArrayList<String>();
+            dayNames.add("Sunday");
+            dayNames.add("Monday");
+            dayNames.add("Tuesday");
+            dayNames.add("Wednesday");
+            dayNames.add("Thursday");
+            dayNames.add("Friday");
+            dayNames.add("Saturday");
     }
 }

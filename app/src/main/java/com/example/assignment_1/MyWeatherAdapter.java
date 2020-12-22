@@ -11,11 +11,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyViewHolder> implements View.OnClickListener{
 
     Context context;
-    public MyWeatherAdapter(Context context) {
+    ArrayList<String> days;
+    public MyWeatherAdapter(Context context, ArrayList<String> days) {
         this.context = context;
+        this.days = days;
 
 
     }
@@ -34,7 +38,7 @@ public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.day.setText("Sunday");
+        holder.day.setText(days.get(position));
         holder.description.setText("Today is very cold");
         holder.minTemp.setText("35");
         holder.maxTemp.setText("45");
