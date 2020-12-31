@@ -9,7 +9,7 @@ public class Daily {
     private Integer sunrise;
     private Integer sunset;
     private Temp temp;
-    private FeelsLike feelsLike;
+    private FeelsLike feels_like;
     private Integer pressure;
     private Integer humidity;
     private Double dewPoint;
@@ -53,12 +53,10 @@ public class Daily {
         this.temp = temp;
     }
 
-    public FeelsLike getFeelsLike() {
-        return feelsLike;
-    }
+    public FeelsLike getFeelsLike() { return feels_like; }
 
     public void setFeelsLike(FeelsLike feelsLike) {
-        this.feelsLike = feelsLike;
+        this.feels_like = feelsLike;
     }
 
     public Integer getPressure() {

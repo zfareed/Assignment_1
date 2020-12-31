@@ -17,6 +17,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.assignment_1.WeatherData.Daily;
+import com.example.assignment_1.WeatherData.FeelsLike;
 import com.example.assignment_1.WeatherData.Weather;
 import com.example.assignment_1.WeatherData.WeatherData;
 import com.google.gson.Gson;
@@ -61,8 +62,12 @@ public class MainActivity extends AppCompatActivity {
                         Gson gson = new Gson();
                         weatherData= gson.fromJson(response.toString(),WeatherData.class);
 
+                        Log.i("Zain","Sunrise : "+weatherData.getDaily().get(0).getSunrise());
 
-                        SetRecyclerview(weatherData);
+
+
+
+                       SetRecyclerview(weatherData);
 
 
 
@@ -114,15 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-   /* public void chek(WeatherData mweatherData){
 
-        WeatherData weatherData = mweatherData;
-
-
-        String mystring = weatherData.getDaily().get(1).getWeather().get(0).getDescription();
-        Log.i("Zain","TimeZone : "+mystring);
-
-    }*/
 
 
 }
