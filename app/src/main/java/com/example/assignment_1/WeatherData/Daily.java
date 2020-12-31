@@ -1,9 +1,6 @@
 
 package com.example.assignment_1.WeatherData;
 
-import com.example.assignment_1.FeelsLike;
-import com.example.assignment_1.Weather;
-
 import java.util.List;
 
 public class Daily {

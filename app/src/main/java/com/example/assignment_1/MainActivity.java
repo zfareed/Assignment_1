@@ -16,6 +16,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.assignment_1.WeatherData.Daily;
+import com.example.assignment_1.WeatherData.Weather;
+import com.example.assignment_1.WeatherData.WeatherData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,15 +27,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> dayNames;
-    ArrayList<Integer> images;
+    ArrayList<String> icons;
     RequestQueue requestQueue;
+    WeatherData weatherData;
+    Weather weather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Days();
-        AddImages();
+
 
         requestQueue = Volley.newRequestQueue(this);
         fetchJsonResponse();
@@ -59,7 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.i("Zain","Weather : "+response.toString());
+                        for (int i=0;i<7;i++){
+                            String myicons = weather.getIcon();
+                        }
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -83,14 +92,8 @@ public class MainActivity extends AppCompatActivity {
             dayNames.add("Saturday");
     }
 
-    public void AddImages(){
-        images = new ArrayList<Integer>();
-        images.add(R.drawable.cloud_circle);
-        images.add(R.drawable.cloud_circle);
-        images.add(R.drawable.cloud_circle);
-        images.add(R.drawable.cloud_circle);
-        images.add(R.drawable.cloud_circle);
-        images.add(R.drawable.cloud_circle);
-        images.add(R.drawable.cloud_circle);
+    public void AddImagecons(){
+        icons = new ArrayList<String>();
+
     }
 }
