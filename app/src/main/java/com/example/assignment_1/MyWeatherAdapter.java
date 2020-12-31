@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.assignment_1.WeatherData.WeatherData;
+
 import java.util.ArrayList;
 
 public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyViewHolder> implements View.OnClickListener{
@@ -18,10 +21,12 @@ public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyVi
     Context context;
     ArrayList<String> days;
     ArrayList<Integer> images;
-    public MyWeatherAdapter(Context context, ArrayList<String> days, ArrayList<Integer> images) {
+    WeatherData myWeatherData;
+    public MyWeatherAdapter(Context context, ArrayList<String> days, WeatherData weatherData) {
         this.context = context;
         this.days = days;
         this.images = images;
+        this.myWeatherData = weatherData;
 
 
     }
@@ -41,10 +46,13 @@ public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.day.setText(days.get(position));
-        holder.description.setText("Today is very cold");
-        holder.image.setBackgroundResource(images.get(position));
-        holder.minTemp.setText("35");
-        holder.maxTemp.setText("45");
+        String imageURL =  "https://openweathermap.org/img/wn/"+ myWeatherData.getDaily().get(position).getWeather().get(0).getIcon() +"@2x.png";
+        Glide.with(context).load(imageURL).into(holder.image);
+
+        /*holder.image.setBackgroundResource(images.get(position));*/
+        holder.description.setText(myWeatherData.getDaily().get(position).getWeather().get(0).getDescription());
+        holder.minTemp.setText("min "+myWeatherData.getDaily().get(position).getTemp().getMin()+"");
+        holder.maxTemp.setText("max"+myWeatherData.getDaily().get(position).getTemp().getMax()+"");
 
         holder.itemView.setOnClickListener(this);
 

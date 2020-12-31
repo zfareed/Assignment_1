@@ -19,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.assignment_1.WeatherData.Daily;
 import com.example.assignment_1.WeatherData.Weather;
 import com.example.assignment_1.WeatherData.WeatherData;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,10 +28,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> dayNames;
-    ArrayList<String> icons;
     RequestQueue requestQueue;
     WeatherData weatherData;
-    Weather weather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +38,16 @@ public class MainActivity extends AppCompatActivity {
         Days();
 
 
+
+
+
+
+
         requestQueue = Volley.newRequestQueue(this);
         fetchJsonResponse();
 
 
-        RecyclerView recyclerView = findViewById(R.id.rclrview);
 
-        //Decoration - Divider between items
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(itemDecoration);
-
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        MyWeatherAdapter weatherAdapter = new MyWeatherAdapter(this, dayNames, images);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(weatherAdapter);
 
 
     }
@@ -64,9 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        for (int i=0;i<7;i++){
-                            String myicons = weather.getIcon();
-                        }
+                        Gson gson = new Gson();
+                        weatherData= gson.fromJson(response.toString(),WeatherData.class);
+
+
+                        SetRecyclerview(weatherData);
+
 
 
                     }
@@ -81,6 +78,27 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(req);
     }
 
+
+    public void SetRecyclerview(WeatherData mweatherData){
+
+        WeatherData weatherData = mweatherData;
+
+        RecyclerView recyclerView = findViewById(R.id.rclrview);
+
+        //Decoration - Divider between items
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(itemDecoration);
+
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        MyWeatherAdapter weatherAdapter = new MyWeatherAdapter(this, dayNames, weatherData);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(weatherAdapter);
+
+
+
+    }
+
     public  void Days(){
             dayNames = new ArrayList<String>();
             dayNames.add("Sunday");
@@ -92,8 +110,19 @@ public class MainActivity extends AppCompatActivity {
             dayNames.add("Saturday");
     }
 
-    public void AddImagecons(){
-        icons = new ArrayList<String>();
 
-    }
+
+
+
+   /* public void chek(WeatherData mweatherData){
+
+        WeatherData weatherData = mweatherData;
+
+
+        String mystring = weatherData.getDaily().get(1).getWeather().get(0).getDescription();
+        Log.i("Zain","TimeZone : "+mystring);
+
+    }*/
+
+
 }

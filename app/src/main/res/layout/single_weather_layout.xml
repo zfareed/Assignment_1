@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/skyblue">
+    android:background="@color/darkblue">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@drawable/sun"
+        android:src="@drawable/sun"
         />
 
     <LinearLayout
@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:hint="Day"
             android:text="Day"/>
 
@@ -33,6 +34,7 @@
             android:id="@+id/desView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_weight="1"
             android:hint="description" />
@@ -49,6 +51,7 @@
             android:id="@+id/minVew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:hint="Min"/>
 
@@ -56,6 +59,7 @@
             android:id="@+id/maxView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:hint="Max"/>
     </LinearLayout>

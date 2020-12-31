@@ -17,8 +17,8 @@ public class Daily {
     private Integer windDeg;
     private List<Weather> weather = null;
     private Integer clouds;
-    private Integer pop;
-    private Integer uvi;
+    private float pop;
+    private float uvi;
     private Double rain;
 
     public Integer getDt() {
@@ -117,19 +117,19 @@ public class Daily {
         this.clouds = clouds;
     }
 
-    public Integer getPop() {
+    public float getPop() {
         return pop;
     }
 
-    public void setPop(Integer pop) {
+    public void setPop(float pop) {
         this.pop = pop;
     }
 
-    public Integer getUvi() {
+    public float getUvi() {
         return uvi;
     }
 
-    public void setUvi(Integer uvi) {
+    public void setUvi(float uvi) {
         this.uvi = uvi;
     }
 
