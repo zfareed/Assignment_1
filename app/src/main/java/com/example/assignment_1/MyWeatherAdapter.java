@@ -17,9 +17,11 @@ public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyVi
 
     Context context;
     ArrayList<String> days;
-    public MyWeatherAdapter(Context context, ArrayList<String> days) {
+    ArrayList<Integer> images;
+    public MyWeatherAdapter(Context context, ArrayList<String> days, ArrayList<Integer> images) {
         this.context = context;
         this.days = days;
+        this.images = images;
 
 
     }
@@ -40,6 +42,7 @@ public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.day.setText(days.get(position));
         holder.description.setText("Today is very cold");
+        holder.image.setBackgroundResource(images.get(position));
         holder.minTemp.setText("35");
         holder.maxTemp.setText("45");
 
@@ -49,7 +52,7 @@ public class MyWeatherAdapter extends RecyclerView.Adapter<MyWeatherAdapter.MyVi
 
     @Override
     public int getItemCount() {
-        return 7;
+        return days.size();
     }
 
     @Override
